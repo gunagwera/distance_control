@@ -1,0 +1,52 @@
+<launch>
+  
+  <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
+
+  <!-- vehicle 1 added -->
+  <group ns="vehicle1">
+    <include file="$(find vehicle_sim_launcher)/launch/spawner.launch" >
+    <!-- <arg name="init_pose" value="-x -5 -y 0 -z 0" /> -->
+      <arg name="init_pose" value="-x 19 -y -0 -z 0" />    
+      <arg name="robot_name"  value="vehicle1" />
+    </include>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" />
+  </group>
+ 
+  <!-- vehicle 2 -->
+  <group ns="vehicle2">
+    <include file="$(find vehicle_sim_launcher)/launch/spawner.launch" >
+      <!-- <arg name="init_pose" value="-x -10 -y 2 -z 0" /> -->
+      <arg name="init_pose" value="-x 13 -y -0 -z 0" />
+      <arg name="robot_name"  value="vehicle2" />
+    </include>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" />
+  </group>
+
+
+  <!-- vehicle 3 --> 
+  <group ns="vehicle3">
+    <include file="$(find vehicle_sim_launcher)/launch/spawner.launch" >
+      <!-- <arg name="init_pose" value="-x -10 -y -2 -z 0" /> -->
+
+      <arg name="init_pose" value="-x 7 -y -0 -z 0" />
+      <arg name="robot_name"  value="vehicle3" />
+    </include>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" />
+  </group>
+ 
+  <!-- vehicle 4 -->
+  <group ns="vehicle4">
+    <include file="$(find vehicle_sim_launcher)/launch/spawner.launch" >
+      <!-- <arg name="init_pose" value="-x -5 -y -4 -z 0" /> -->
+      <arg name="init_pose" value="-x 1 -y -0 -z 0" />
+      <arg name="robot_name"  value="vehicle4" />
+    </include>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" />
+  </group>
+
+  <!-- try general rviz -->
+</launch> 
